@@ -1,34 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Flask MongoDB Form</title>
-</head>
+<h2>To-Do Item</h2>
 
-<body>
+<form method="POST" action="/submittodoitem">
 
-    <h1>Submit Your Details</h1>
+    <label>Item Name:</label>
+    <input type="text" name="itemName" required>
 
-    {% if error %}
-        <p style="color: red;">
-            Error: {{ error }}
-        </p>
-    {% endif %}
+    <br><br>
 
-    <form method="POST">
+    <label>Item Description:</label>
+    <textarea name="itemDescription" required></textarea>
 
-        <label>Name:</label>
-        <input type="text" name="name" required>
+    <br><br>
 
-        <br><br>
+    <button type="submit">Submit To-Do</button>
 
-        <label>Email:</label>
-        <input type="email" name="email" required>
-
-        <br><br>
-
-        <button type="submit">Submit</button>
-
-    </form>
-
-</body>
-</html>
+</form>
