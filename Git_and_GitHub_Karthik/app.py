@@ -56,6 +56,24 @@ def home():
 
     return render_template("index.html", error=error)
 
+@app.route("/submittodoitem", methods=["POST"])
+def submit_todo_item():
+
+    try:
+        item_name = request.form.get("itemName")
+        item_description = request.form.get("itemDescription")
+
+        todo_data = {
+            "itemName": item_name,
+            "itemDescription": item_description
+        }
+
+        collection.insert_one(todo_data)
+
+        return redirect(url_for("success"))
+
+    except Exception as e:
+        return f"Error: {str(e)}", 500
 
 # Success page
 @app.route("/success")
